@@ -3,7 +3,7 @@
 // anywhere) and defines all routes. Pages beyond Login/Register are added
 // here as they're built — ProtectedRoute guards anything past the dashboard.
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
