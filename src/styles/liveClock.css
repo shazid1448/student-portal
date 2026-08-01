@@ -1,0 +1,125 @@
+/* src/styles/liveClock.css
+   Glassmorphism live clock card — replaces the Notice Board on the
+   Dashboard. Matches the deep-indigo/gold design tokens from global.css. */
+
+.live-clock-card {
+  position: relative;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  animation: live-clock-fade-in 500ms ease;
+}
+
+.live-clock-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow-gold), var(--shadow-lg);
+}
+
+@keyframes live-clock-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle glowing halo behind the card, slowly pulsing. */
+.live-clock-glow {
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(circle, rgba(232, 182, 87, 0.18), transparent 65%);
+  animation: live-clock-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes live-clock-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.live-clock-icon {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
+  color: var(--color-bg-deep);
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.live-clock-weekday {
+  position: relative;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-soft);
+  background: rgba(232, 182, 87, 0.12);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.live-clock-time {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.live-clock-colon {
+  color: var(--color-gold-soft);
+  animation: live-clock-blink 1s steps(1) infinite;
+}
+
+@keyframes live-clock-blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.live-clock-period {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--color-gold-soft);
+  margin-left: 8px;
+  align-self: center;
+}
+
+.live-clock-date {
+  position: relative;
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 480px) {
+  .live-clock-time {
+    font-size: 2.1rem;
+  }
+}

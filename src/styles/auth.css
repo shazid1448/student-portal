@@ -1,0 +1,314 @@
+/* src/styles/auth.css
+   Shared styles for Login and Register (the "auth" pages). Split-screen on
+   desktop: a brand panel with a floating glass ID-card motif on the left,
+   the form on the right. Register drops the side panel and widens the form. */
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 48px;
+}
+
+.auth-page-register {
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+/* ---------- Left brand panel (Login only) ---------- */
+
+.auth-side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px;
+  overflow: hidden;
+}
+
+.auth-side-glow {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(232, 182, 87, 0.25), transparent 70%);
+  filter: blur(10px);
+}
+
+.auth-side-title {
+  font-size: 2.4rem;
+  margin-top: 32px;
+}
+
+.auth-side-copy {
+  margin-top: 12px;
+  color: var(--color-text-muted);
+  max-width: 34ch;
+  line-height: 1.6;
+}
+
+/* Signature element: a small floating "student ID card" built from glass
+   layers, animated with a slow tilt to feel tactile rather than decorative. */
+.auth-id-card {
+  width: 220px;
+  height: 140px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(140, 124, 240, 0.35), rgba(232, 182, 87, 0.25));
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--shadow-glow-gold);
+  padding: 16px;
+  animation: id-card-float 6s ease-in-out infinite;
+}
+
+.auth-id-card-stripe {
+  width: 40%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-gold-soft);
+  margin-bottom: 20px;
+}
+
+.auth-id-card-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.auth-id-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+.auth-id-card-line {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  margin-top: 8px;
+  width: 60px;
+}
+
+.auth-id-card-line-wide {
+  width: 90px;
+}
+
+@keyframes id-card-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+/* ---------- Form side (both pages) ---------- */
+
+.auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: auth-form-in 400ms ease;
+}
+
+.auth-form-wide {
+  max-width: 720px;
+}
+
+@keyframes auth-form-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-form-title {
+  font-size: 1.8rem;
+}
+
+.auth-form-subtitle {
+  color: var(--color-text-muted);
+  margin-top: -8px;
+}
+
+.auth-alert {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.auth-alert-error {
+  background: rgba(248, 113, 113, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: var(--color-error);
+}
+
+.auth-alert-success {
+  background: rgba(74, 222, 128, 0.15);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  color: var(--color-success);
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.auth-field input,
+.auth-field select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+    background var(--transition-base);
+}
+
+.auth-field input:hover,
+.auth-field select:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-field input:focus,
+.auth-field select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(232, 182, 87, 0.2);
+}
+
+.auth-field-error {
+  color: var(--color-error);
+  font-size: 0.78rem;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.auth-field-span2 {
+  grid-column: span 2;
+}
+
+.auth-picture-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.auth-picture-preview {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--color-glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.auth-picture-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-picture-upload {
+  font-size: 0.85rem;
+  color: var(--color-violet-soft);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auth-submit {
+  margin-top: 8px;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-soft));
+  color: var(--color-bg-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-gold), var(--shadow-lg);
+}
+
+.auth-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.auth-switch a {
+  color: var(--color-gold-soft);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.auth-switch a:hover {
+  color: var(--color-gold);
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .auth-side {
+    display: none;
+  }
+
+  .auth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-field-span2 {
+    grid-column: span 1;
+  }
+}

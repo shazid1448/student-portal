@@ -1,0 +1,324 @@
+/* src/styles/dashboard.css */
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.dashboard-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 20px;
+}
+
+/* ---------- Student Card ---------- */
+
+.student-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.student-card-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-bg-deep);
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), var(--shadow-xs);
+  transition: box-shadow var(--transition-base);
+}
+
+.student-card:hover .student-card-avatar {
+  box-shadow: 0 0 0 3px rgba(232, 182, 87, 0.35), var(--shadow-glow-gold);
+}
+
+.student-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-card-info h3 {
+  font-size: 1.3rem;
+}
+
+.student-card-id {
+  font-family: var(--font-mono);
+  color: var(--color-gold-soft);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.student-card-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.student-card-meta span {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 3px 10px;
+  transition: background var(--transition-base);
+}
+
+.student-card-meta span:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.student-card-email {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Countdown ---------- */
+
+.countdown-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countdown-card h3 {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-body);
+}
+
+.countdown-course {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-top: 8px;
+}
+
+.countdown-meta {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.countdown-timer {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.countdown-timer div {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 56px;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.countdown-timer div:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 182, 87, 0.4);
+}
+
+.countdown-timer span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--color-gold-soft);
+}
+
+.countdown-timer small {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Quick Stats ---------- */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  padding: 20px;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-gold-soft);
+  transition: color var(--transition-base);
+}
+
+.stat-card:hover .stat-value {
+  color: var(--color-gold);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Two-column section: Today's Routine + Live Clock ---------- */
+
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.dashboard-card {
+  padding: 24px;
+}
+
+.dashboard-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 24px 12px;
+  color: var(--color-text-muted);
+}
+
+.empty-state p {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.empty-state span {
+  font-size: 0.82rem;
+}
+
+.today-routine-list,
+.notice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.today-routine-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  transition: background var(--transition-base), border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.today-routine-list li:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(232, 182, 87, 0.25);
+  transform: translateX(3px);
+}
+
+.today-routine-time {
+  font-family: var(--font-mono);
+  color: var(--color-gold-soft);
+  width: 60px;
+}
+
+.today-routine-course {
+  flex: 1;
+}
+
+.today-routine-room {
+  color: var(--color-text-muted);
+}
+
+.notice-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+  font-size: 0.85rem;
+  transition: background var(--transition-base), border-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.notice-list li:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(140, 124, 240, 0.3);
+  transform: translateX(3px);
+}
+
+.notice-tag {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(140, 124, 240, 0.2);
+  color: var(--color-violet-soft);
+  flex-shrink: 0;
+}
+
+.notice-tag-exam {
+  background: rgba(248, 113, 113, 0.18);
+  color: var(--color-error);
+}
+
+.notice-title {
+  flex: 1;
+}
+
+.notice-date {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .dashboard-top,
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

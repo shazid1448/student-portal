@@ -1,0 +1,112 @@
+/* src/styles/routine.css */
+
+.routine-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.routine-heading {
+  font-size: 1.3rem;
+}
+
+.routine-table {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  gap: 14px;
+  overflow-x: auto;
+}
+
+.routine-day-column {
+  padding: 16px;
+  min-height: 160px;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.routine-day-column:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.routine-day-column h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-soft);
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-glass-border);
+}
+
+.routine-day-empty {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.routine-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.routine-entry {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 0.78rem;
+  transition: transform var(--transition-base), border-color var(--transition-base),
+    background var(--transition-base);
+}
+
+.routine-entry:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232, 182, 87, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.routine-entry-time {
+  font-family: var(--font-mono);
+  color: var(--color-gold-soft);
+  font-size: 0.72rem;
+}
+
+.routine-entry-course {
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.routine-entry-meta {
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.routine-entry-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.routine-entry-actions button {
+  background: none;
+  border: none;
+  color: var(--color-violet-soft);
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: opacity var(--transition-fast);
+}
+
+.routine-entry-actions button:hover {
+  opacity: 0.7;
+}
+
+.routine-entry-actions button:last-child {
+  color: var(--color-error);
+}
+
+@media (max-width: 1000px) {
+  .routine-table {
+    grid-template-columns: 1fr;
+  }
+}

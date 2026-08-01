@@ -1,0 +1,152 @@
+/* src/styles/teachers.css */
+
+.teachers-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.teachers-dept-select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--color-text);
+  transition: border-color var(--transition-base);
+}
+
+.teachers-dept-select:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.teachers-dept-select:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.teacher-card {
+  padding: 22px;
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.teacher-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.teacher-card-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, var(--color-violet), var(--color-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-bg-deep);
+  overflow: hidden;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  transition: box-shadow var(--transition-base);
+}
+
+.teacher-card:hover .teacher-card-avatar {
+  box-shadow: 0 0 0 3px rgba(232, 182, 87, 0.3);
+}
+
+.teacher-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teacher-card h4 {
+  font-size: 1rem;
+  font-family: var(--font-display);
+}
+
+.teacher-card-designation {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.teacher-card-dept {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(232, 182, 87, 0.15);
+  color: var(--color-gold-soft);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.teacher-card-details {
+  margin-top: 14px;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--color-glass-border);
+  padding-top: 12px;
+}
+
+.teacher-card-details strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.teacher-card-custom-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(140, 124, 240, 0.2);
+  color: var(--color-violet-soft);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.teacher-card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-glass-border);
+}
+
+.teacher-card-actions button {
+  background: none;
+  border: none;
+  color: var(--color-violet-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: opacity var(--transition-fast);
+}
+
+.teacher-card-actions button:hover {
+  opacity: 0.7;
+}
+
+.teacher-card-actions button:last-child {
+  color: var(--color-error);
+}
+
+.teacher-form {
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+}

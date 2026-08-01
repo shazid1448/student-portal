@@ -1,0 +1,86 @@
+// src/data/teachers.js
+// Sample teacher directory. Per the spec, teacher info lives in a plain JS
+// array (not Local Storage) since it's reference data, not something
+// students edit. Swap this out for real data whenever you have it.
+
+const teachers = [
+  {
+    id: "t1",
+    name: "Dr. Imran Mahmud",
+    designation: "Professor & Head",
+    department: "SWE",
+    course: "N/A",
+    email: "imranmahmud@daffodilvarsity.edu.bd",
+    phone: "+880 1711-000111",
+    room: "N/A",
+    photo: null,
+  },
+  {
+    id: "t2",
+    name: "Mr. A.H.M Shahariar Parvez",
+    designation: "Associate Professor",
+    department: "SWE",
+    course: "Data Structures & Algorithms",
+    email: "shahariar.swe@diu.edu.bd",
+    phone: "+88 01718642878",
+    room: "SWE-108",
+    photo: null,
+  },
+  {
+    id: "t3",
+    name: "Md. Khaled Sohel",
+    designation: "Assistant Professor",
+    department: "SWE",
+    course: "Operating Systems",
+    email: "khaledsohel@daffodilvarsity.edu.bd",
+    phone: "01713493251",
+    room: "SWE-215",
+    photo: null,
+  },
+  {
+    id: "t4",
+    name: "Shariful Alam",
+    designation: "Lecturer",
+    department: "SWE",
+    course: "Circuit Analysis",
+    email: "shariful.alam@university.edu",
+    phone: "+880 1711-000444",
+    room: "SWE-108",
+    photo: null,
+  },
+  {
+    id: "t5",
+    name: "Dr. Tasnim Ahmed",
+    designation: "Professor",
+    department: "SWE",
+    course: "Principles of Marketing",
+    email: "tasnim.ahmed@university.edu",
+    phone: "+880 1711-000555",
+    room: "SWE-201",
+    photo: null,
+  },
+  {
+    id: "t6",
+    name: "Sadia Rahman",
+    designation: "Assistant Professor",
+    department: "English",
+    course: "Academic Writing",
+    email: "sadia.rahman@university.edu",
+    phone: "+880 1711-000666",
+    room: "ENG-104",
+    photo: null,
+  },
+  {
+    id: "t7",
+    name: "Mr. Shaswata Bhattacharya",
+    designation: "Lecturer",
+    department: "SWE",
+    course: "Software Engineering web Development",
+    email: "bhattacharya.cse@diu.edu.bd",
+    phone: "+88 01858108129",
+    room: "SWE-204",
+    photo: null,
+  },
+];
+
+export default teachers;

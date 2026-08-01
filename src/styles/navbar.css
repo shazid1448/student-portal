@@ -1,0 +1,124 @@
+/* src/styles/navbar.css */
+
+.page-with-navbar {
+  min-height: 100vh;
+  animation: page-fade-in 500ms ease;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* position: sticky instead of fixed — the navbar reserves its own space in
+   the normal page flow (like a regular block element), then sticks 16px
+   from the top once you scroll past it. This means content below it can
+   NEVER overlap, because the browser handles the spacing automatically —
+   no manual padding-top guess required, unlike position: fixed. */
+.navbar {
+  position: sticky;
+  top: 16px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  margin: 16px 16px 24px;
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--color-gold-soft);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navbar-link {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.navbar-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text);
+}
+
+.navbar-link-active {
+  background: rgba(232, 182, 87, 0.15);
+  color: var(--color-gold-soft);
+}
+
+.navbar-logout {
+  margin-left: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-error);
+  font-size: 0.85rem;
+  transition: background var(--transition-base);
+}
+
+.navbar-logout:hover {
+  background: rgba(248, 113, 113, 0.12);
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+
+.navbar-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+@media (max-width: 860px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--color-bg-soft);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-md);
+    padding: 12px;
+    display: none;
+  }
+
+  .navbar-links-open {
+    display: flex;
+  }
+
+  .navbar-logout {
+    margin-left: 0;
+    margin-top: 6px;
+  }
+}
