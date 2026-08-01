@@ -19,7 +19,7 @@ import Settings from "./pages/Settings";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
@@ -83,6 +83,6 @@ export default function App() {
           <Route path="*" element={<h1 style={{ color: "white", padding: 40 }}>404 — Not Found (placeholder, real page coming)</h1>} />
         </Routes>
       </AuthProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
